@@ -21,55 +21,55 @@ $(document).ready(function () {
 
     //loop to show dates
     for (let i = 0; i < 10; i++) {
+    // using template list propagation
+      let temp = $("template")[0];
+    //get the div element from the template:
+        let item = temp.content.querySelector("li");;
+
+
+
         if(i==0){
-        datePropogation(true);
+        datePropogation(true,temp,item);
         }else{
-            datePropogation();
+        datePropogation(false,temp,item);
         }
     }
 
     //show date on date page
    showDateOnDatePage();
 
-    function datePropogation(isActive=false) {
+    function datePropogation(isActive,temp,item) {
         let day = date.getDay();
         let month = date.getMonth();
         let dayOfMonth = date.getDate();
         date.setDate(date.getDate() + 1);
 
-        //create list item
-        let dateItem = document.createElement("li");
-        let daySpan = document.createElement("strong");
-        let popular="<span class='badge green-text'><i class='far fa-star'></i> Most Poular</span>"
-        $(daySpan).text(days[day]);
-        let text = ", " + months[month] + " " + dayOfMonth;
-        $(dateItem).attr({
+          //Create a new node, based on the template:
+         let li = document.importNode(item, true);
+          $(li).attr({
             "data-day": days[day],
             "data-day-of-month": dayOfMonth,
-            "data-month": months[month],
+            "data-month": months[month]
         });
-        $(dateItem).append(daySpan, text).addClass("list-group-item");
+        let text = ", " + months[month] + " " + dayOfMonth;
+        $(li).children( "strong" ).text(days[day]);
+        let popular="<span class='badge green-text'><i class='far fa-star'></i> Most Poular</span>"
+        $(li).append(text);
+      
         if(isActive){ 
-            $(dateItem).append(popular);
-             $(dateItem).addClass('active-date');
-             localStorage.setItem("day", days[day]);
-             localStorage.setItem("dayOfMonth", dayOfMonth);
-             localStorage.setItem("month", months[month]);
-
-            }
-       
-
-        //add Event listener to list item
-        $(dateItem).click((e) => {
+                $(li).append(popular);
+                 $(li).addClass('active-date');
+                 localStorage.setItem("day", days[day]);
+                 localStorage.setItem("dayOfMonth", dayOfMonth);
+                 localStorage.setItem("month", months[month]);
+                }
+          //add Event listener to list item
+        $(li).click((e) => {
             addListStyle(e)
         });
-
-        //append list item to the date-list div
-        $(".date-list").append(dateItem);
-        
+          //append list item to the date-list div
+          $(".date-list").append(li);
     
-
-
     }
 
     function addListStyle(e) {

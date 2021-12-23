@@ -234,6 +234,9 @@
      padding: 10px 0;
      
  }
+ .faq #accordion .btn:focus {
+    box-shadow:none; 
+}
  .faq #accordion .down-icon{
      position: absolute;
      right: 10px;
