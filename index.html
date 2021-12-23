@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshly</title>
+    <link rel="shortcut icon" href="https://static.freshly.com/0/favicon-cb8c5e14f273fddc26edc56c0dbdb9433e41d88f36fecc43aaf353afed8e921d.ico" type="image/x-icon">
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <!-- jquery steps css -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
+     <!-- JQuery Steps  -->
+     <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+     <!-- stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+    <div class="step-app" id="demo">
+    <div class="container">
+        <ul class="step-steps">
+            <li data-step-target="plans">Plans</li>
+            <li data-step-target="day">Day</li>
+            <li data-step-target="meal">Meals</li>
+            <li data-step-target="chekout">Checkout</li>
+          </ul>
+    </div>
+    <hr class="divider">
+    <div class="step-content">
+        <!-- meal step start -->
+    <div class="step-tab-panel" data-step="plans">  
+    <section id="meal-plan">
+        <div class="container">
+            <div class="row justify-content-center text-center mt-5">
+                <div class="top-section">
+                    <img src="assets/images/freshly-meal-page-image.svg" alt="freshly-icon" class="img-fluid freshly-icon" >
+                    <h2>Flexible plans that fit your life</h2>
+                    <p>We offer anywhere from 4–12 meals per week, starting at <span class="green-text">$11.79 / meal</span>. <strong>The bigger your box, the more you’ll save</strong>—and you can always pause, cancel, or change your plan at any time.</p>
+                </div>
+            </div>
+            <div class="row meals">
+                <div class="col-6 col-md-3 text-center meal-item" data-meal-plan="4">
+                    <div class="freshly-img-container">
+                    <img src="assets/images/plan1.jpg" alt="plan 4" class="img-fluid">
+                    </div>
+                    <div class="meal-name green-text">4 Meals</div>
+                </div>
+                <div class="col-6 col-md-3 text-center meal-item" data-meal-plan="6">
+                    <div class="freshly-img-container">
+                    <img src="assets/images/plan6.jpg" alt="plan 6" class="img-fluid">
+                    </div>
+                    <div class="meal-name green-text">6 Meals</div>
+                </div>
+                <div class="col-6 col-md-3 text-center meal-item" data-meal-plan="10">
+                    <div class="freshly-img-container">
+                    <img src="assets/images/plan10.jpg" alt="plan 10" class="img-fluid">
+                    </div>
+                    <div class="meal-name green-text meal-item">10 Meals</div>
+                </div>
+                <div class="col-6 col-md-3 text-center meal-item" data-meal-plan="12">
+                    <div class="freshly-img-container">
+                    <img src="assets/images/plan12.jpg" alt="plan 12" class="img-fluid">
+                    </div>
+                    <div class="meal-name green-text">12 Meals</div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="green-text freshly-small-text">Shipping and tax added at checkout</div>
+                <div><a href="#" class="select-meal-btn btn btn-lg next">Get Started</a></div>
+                
+            </div>
+        </div>
+    </section>
+   </div> 
+   <!-- meal step end -->
+
+
+   <!-- day step start -->
+   <div class="step-tab-panel" data-step="day">  
+   <section id="daySelection">
+       <div class="container">
+           <div class="row">
+               <h2>Choose A Delivery Day</h2>
+           </div>
+           <div class="row">
+               <div class="col col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto">
+                <div class="list-group date-list ">
+                    
+                  </div>
+                  <a href="#" class="next btn btn-lg ">Next</a>
+                  <div class="show-date text-center py-3"></div>
+
+               </div>
+           </div>
+           <hr class="my-5">
+           <!-- accordion start -->
+           <div class="row faq">
+            <h2>Common Questions</h2>
+            <div class="col col-md-10 mx-auto">
+                <div id="accordion">
+                    <!-- card-item-1 -->
+                    <div class="card">
+                      <div class="card-header">
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+                         <span class="fw-bold">How many servings are your meals? </span><span class="down-icon ms-auto"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                        </a>
+                      </div>
+                      <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            The majority of our meals are single serving and meant to feed an average adult. We also offer multi-serve proteins and sides, which are designed to feed multiple people for extra mealtime flexibility. These delicious, ready-to-heat options can help you bulk up existing meals, simplify home cooking, or even build an entire meal—the choice is yours!
+                           <br><br>
+                            Our 6-meal plan is perfect for a person looking for 6 dinners (or lunches!) a week. On average, our meals weigh in at about 13 ounces and range from 300 to 650 calories. If you have a larger household, we do offer a 12 meal per week subscription (it’s perfect for couples or a family of 4 looking for 3 meals per week). Plus, you can always order multiple subscriptions.
+                                                    
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card-item-2 -->
+                    <div class="card">
+                        <div class="card-header">
+                          <a class="btn" data-bs-toggle="collapse" href="#collapsetwo">
+                           <span class="fw-bold">Do you accommodate dietary preferences? </span><span class="down-icon ms-auto"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                          </a>
+                        </div>
+                        <div id="collapsetwo" class="collapse" data-bs-parent="#accordion">
+                          <div class="card-body">
+                            We accommodate a variety of dietary preferences, including plenty of gluten-free, dairy-free, peanut-free, plant-based, low-calorie, and carb-conscious options. As a customer, you can set your own dietary preferences and easily find the meals that work for you. You can also check out individual ingredient lists for each dish if you have specific concerns, or contact us at support@freshly.com for help making selections. If you’re unable to place an order that fits your preferences now, be sure to check back frequently as we’re always adding new and exciting dishes.                        
+                          </div>
+                        </div>
+                      </div>
+                    <!-- card-item-3 -->
+                    <div class="card">
+                        <div class="card-header">
+                          <a class="btn" data-bs-toggle="collapse" href="#collapsethree">
+                           <span class="fw-bold">How long do the meals last? </span><span class="down-icon ms-auto"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                          </a>
+                        </div>
+                        <div id="collapsethree" class="collapse" data-bs-parent="#accordion">
+                          <div class="card-body">
+                            Our meals are chef prepared and delivered fresh, so typically they have a refrigerated shelf life of about 3-5 days. Select items (such as seafood) are best eaten first, so we’ll add a badge on the package to let you know. We usually suggest enjoying these meals within the first few days of receiving your order, but you can always check their exact use-by date on the back-of-pack nutrition label. If you’re ever unable to finish your meals within their shelf life, you can always pop them into the freezer for extended storage. Just be sure to microwave your meal straight from the freezer and add a few extra minutes to reach the 165° F internal temperature we recommend.
+                          </div>
+                        </div>
+                      </div>
+                     <!-- card-item-4 -->
+                     <div class="card">
+                        <div class="card-header">
+                          <a class="btn" data-bs-toggle="collapse" href="#collapsefour">
+                           <span class="fw-bold">How do I heat up my meals? </span><span class="down-icon ms-auto"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                          </a>
+                        </div>
+                        <div id="collapsefour" class="collapse" data-bs-parent="#accordion">
+                          <div class="card-body">
+                            Your meals will come to you fully prepared so you just have to heat ‘em up in the microwave. On the back of each meal, you’ll find our easy steps for heating, but generally, the meals heat up in about 3 minutes (depending on your microwave). If you’re unsure, start at 2 minutes and heat in 30–second increments until the meal reaches an inner temperature of 165° F. Our meals are packaged to be heated in the microwave (for the ultimate convenience), but you can heat them in the oven if you’d like. Just so you know, our current meal containers aren’t safe for the oven or stovetop, so you’ll have to transfer your food to heat it up. You can check out the full oven reheat directions in our FAQ.
+                          </div>
+                        </div>
+                      </div>      
+                    <!-- card-item-5 -->
+                     <div class="card">
+                        <div class="card-header">
+                          <a class="btn" data-bs-toggle="collapse" href="#collapseFive">
+                           <span class="fw-bold">How does shipping work?</span><span class="down-icon ms-auto"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                          </a>
+                        </div>
+                        <div id="collapseFive" class="collapse" data-bs-parent="#accordion">
+                          <div class="card-body">
+                            To help guarantee your meals arrive in the freshest condition, there is a small shipping fee associated with your order. We deliver to all states within the continental U.S., and our shipping partners offer delivery every day of the week. The exact days that we can reach you will depend on your ZIP code and the carrier delivering your Freshly meals. Whether you're signing up or updating your typical delivery day, we'll show you all the days available to you so you can choose what's best for you.
+                          </div>
+                        </div>
+                      </div>     
+                    <!-- card-item-6 -->
+                     <div class="card">
+                        <div class="card-header">
+                          <a class="btn" data-bs-toggle="collapse" href="#collapseSix">
+                           <span class="fw-bold">How does the subscription work?</span><span class="down-icon ms-auto"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                          </a>
+                        </div>
+                        <div id="collapseSix" class="collapse" data-bs-parent="#accordion">
+                          <div class="card-body">
+                            Every week you get to pick your selection of meals from our weekly rotation of 50+ options. Choose any number of meals between 4 and 12 per week, with prices starting as low as $11.79/meal. You'll pick the most convenient delivery day for you, and we'll ship your chef-cooked meals right to your doorstep! If you ever need to skip or cancel a week, or size your order up or down, it's easy to make changes to your upcoming delivery before the weekly deadline.
+                          </div>
+                        </div>
+                      </div>               
+                  </div> 
+            </div>
+                
+        </div>
+        <!-- accordion end -->
+       </div>
+
+ </section>
+
+   </div> 
+
+   <!-- day step end -->
+    </div>  
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
