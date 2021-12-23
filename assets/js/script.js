@@ -3,7 +3,8 @@ $(document).ready(function () {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     localStorage.setItem("mealPlan", 4);
     // step function
-    $('#demo').steps({});
+    const steps= $('#demo').steps({});
+    let stepsApi = steps.data('plugin_Steps');
 
     // meal plan section function
     $('[data-meal-plan]').click(function (e) {
@@ -39,6 +40,7 @@ $(document).ready(function () {
         //create list item
         let dateItem = document.createElement("li");
         let daySpan = document.createElement("strong");
+        let popular="<span class='badge green-text'><i class='far fa-star'></i> Most Poular</span>"
         $(daySpan).text(days[day]);
         let text = ", " + months[month] + " " + dayOfMonth;
         $(dateItem).attr({
@@ -48,6 +50,7 @@ $(document).ready(function () {
         });
         $(dateItem).append(daySpan, text).addClass("list-group-item");
         if(isActive){ 
+            $(dateItem).append(popular);
              $(dateItem).addClass('active-date');
              localStorage.setItem("day", days[day]);
              localStorage.setItem("dayOfMonth", dayOfMonth);
@@ -63,6 +66,8 @@ $(document).ready(function () {
 
         //append list item to the date-list div
         $(".date-list").append(dateItem);
+        
+    
 
 
     }
