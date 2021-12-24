@@ -27,8 +27,23 @@
     </template>
     <!--grid item template-->
     <template>
-
-    </template>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3">
+        <div class="card menuItem" data-id="">
+            <img class="card-img-top menu-img img-fluid" src="" alt="">
+            <div class="card-body">
+              <div class="menuTitle"></div>
+              <div class="extra"></div>
+              <div class="d-flex justify-content-between align-items-center">
+                  <div class="gluten">Gluten<br/><span class="glutenValue"></span></div>
+                  <div class="calories"><span class="calValue"></span><br>Cals</div>
+                  <div class="carbs"> <span class="crbsValue"></span><br>Carbs</div>
+                  <div class="protien"><span class="protienValue"></span><br>Protien</div>
+                  <button class="addTocartBtn btn">+ Add</button>
+              </div>
+            </div>
+        </div>
+    </div>
+  </template>
     <div class="step-app" id="demo">
     <div class="container">
         <ul class="step-steps">
@@ -207,19 +222,21 @@
 
    <!-- meal grid + cart section -->
    <div class="step-tab-panel" data-step="meal">  
-       <section id="meal-box-section">
+       <section id="menu-box-section">
             <div class="container-fluid">
                 <div class="row">
                     <!-- meal grid -->
-            <div class="col col-md-8 col-lg-9 meal-grid">
-                <div class="col col-md-6 col-lg-4 col-xl-3">
+            <div class="col col-md-8 col-lg-9 menu-grid">
+                <div class="row">
                     
                 </div>
+                
+                
 
  
             </div>
             <!-- cart -->
-            <div class="col col-md-4 col-lg-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 this is cart
                 
          </div>

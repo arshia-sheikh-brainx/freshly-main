@@ -2,6 +2,53 @@ $(document).ready(function () {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     localStorage.setItem("mealPlan", 4);
+    
+    //get menu data
+    $.get("menu.json", function(data, status){
+        if(status=="success"){
+            
+             const menuItems = data;
+             for (let i=0 ; i<menuItems.length ; i++){
+                 let id=menuItems[i].id;
+                 let name=menuItems[i].name;
+                 let additionalItem=menuItems[i].additionalItem;
+                 let gluten = menuItems[i].gluten;
+                 let cals=menuItems[i].cals;
+                 let carbs= menuItems[i].carbs;
+                 let protein=menuItems[i].protein;
+                 let imageUrl=menuItems[i].url;
+                 let price = menuItems[i].price;
+
+                 displayMenu(id,name,additionalItem,gluten,cals,carbs,protein,imageUrl,price);
+             }
+ 
+        }
+      });
+
+      //display menu items
+      function displayMenu(id,name,additionalItem,gluten,cals,carbs,protein,imageUrl,price){
+
+        let temp = $("template")[1];
+        let div=temp.content.querySelector("div");
+        let menu = document.importNode(div, true);
+        $(menu).children(".menuItem").attr("data-id",id);
+        $(menu).find(".menu-img").attr({
+            "src":imageUrl,
+            "alt":name
+        });
+        $(menu).find(".menuTitle").text(name);
+        $(menu).find(".extra").text(additionalItem);
+        $(menu).find(".glutenValue").text(gluten);
+        $(menu).find(".calValue").text(cals);
+        $(menu).find(".crbsValue").text(carbs);
+        $(menu).find(".protienValue").text(protein);
+        $(".menu-grid .row").append(menu);
+
+
+
+        // addTocartBtn
+      }
+
     // step function
     const steps= $('#demo').steps({});
     let stepsApi = steps.data('plugin_Steps');
@@ -25,9 +72,6 @@ $(document).ready(function () {
       let temp = $("template")[0];
     //get the div element from the template:
         let item = temp.content.querySelector("li");;
-
-
-
         if(i==0){
         datePropogation(true,temp,item);
         }else{
@@ -74,7 +118,9 @@ $(document).ready(function () {
 
     function addListStyle(e) {
         $('.date-list .list-group-item').each(function () {
-            if (this == e.target) {
+            $(this).removeClass('active-date');
+           
+            if (this == e.currentTarget) {
                 $(this).addClass('active-date');
                 let day = $(this).attr("data-day");
                 let dayOfMonth = $(this).attr("data-day-of-month");
@@ -84,8 +130,6 @@ $(document).ready(function () {
                 localStorage.setItem("month", month);
                 //update text when date change
                 showDateOnDatePage();
-            } else {
-                $(this).removeClass('active-date');
             }
         });
     }

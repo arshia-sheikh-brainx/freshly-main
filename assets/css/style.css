@@ -8,6 +8,7 @@
     --dark-blue-color:#1F56CE;
     --skin-color:#fffdf7;
     --text-light:#303030;
+    --card-small-text:#707070;
 }
 @font-face {
     font-family: firstlyFont;
@@ -34,6 +35,7 @@
    font-size: 14px;
    font-weight: 600;
    padding: 20px 10px;
+   cursor: pointer;
 }
 .step-steps li:not(:last-child):after{
     content: ">";
@@ -193,6 +195,8 @@
 .active-date{
     background-color: var(--skin-color) ;
     border-left: 8px solid #2a6dff !important;
+    /* outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(42 109 255 / 25%); */
 }
  #daySelection .next{
     align-items: center;
@@ -271,8 +275,57 @@
     color: var(--text-light);
 }
 
+/* menu-box-section */
+#menu-box-section{
+    background-color: #FFFDF7;
+}
+/* menu grid */
+.menuItem{
+    border-radius: 0;
+}
+.menuItem .card-body{
+    padding: 5px;
+}
+.menuTitle{
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-light);
+}
+.extra{
+    padding: 10px 10px 10px 0;
+}
+.extra , .gluten , .calories , .carbs , .protien{
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--card-small-text);
+}
+.calories , .carbs , .protien{
+border-left: 0.5px solid #ededed;
+padding: 5px;
+}
+.gluten {
+    padding: 5px 5px 5px 0;
+}
+.addTocartBtn{
+   background-color: var(--blue-color);
+   color: var(--white-color);
+   font-weight: 500;
+}
+.addTocartBtn:hover{
+    color: var(--white-color);
+    background-color: var(--dark-blue-color);
+}
+
+
+
 
 /* media queries */
+@media screen and (max-width:1435px) {
+    .protien{
+        display: none;
+    }
+    
+}
 @media screen and (max-width:479px) {
     /* meal plan section */
     .top-section{
@@ -291,6 +344,19 @@
         position: absolute;
         right: 3px;
     }
+    /*menu grid*/
+    .menuItem{
+    flex-direction: row;
+    max-width: 100%;
+    }
+    .menuItem .card-img-top {
+        width: 30%;
+        object-fit: cover;
+    }
+    .protien{
+        display: none;
+    }
+    
 
 
 

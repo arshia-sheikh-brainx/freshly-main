@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "name":"Pork Chile Colorado",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Pork Chile Colorado.jpg"
+    },
+    {
+        "id": 2,
+        "name":"Protein-Packed Chicken Parm",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"80",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Protein-Packed Chicken Parm.jpg"
+    },
+    {
+        "id": 3,
+        "name":"Cauliflower Shell Beef Bolognese",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Cauliflower Shell Beef Bolognese.jpg"
+    },
+    {
+        "id": 4,
+        "name":"Chicken & Pumpkin Parmesan ",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Chicken & Pumpkin Parmesan Risotto.jpg"
+    },
+    {
+        "id": 5,
+        "name":"Homestyle Chicken",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Homestyle Chicken.jpg"
+    },
+    {
+        "id": 6,
+        "name":"Keto-Friendly Chicken Bowl",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"200",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"24",
+        "url":"assets/images/Keto-Friendly Chicken Bowl.jpg"
+    },
+    {
+        "id": 7,
+        "name":"Miso-Glazed Beef Bowl",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"200",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"104",
+        "url":"assets/images/Miso-Glazed Beef Bowl.jpg"
+    }, {
+        "id": 8,
+        "name":"Chicken Cordon Bleu",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Chicken Cordon Bleu.jpg"
+    },
+    {
+        "id": 9,
+        "name":"Chipotle Chicken Bowl",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Chipotle Chicken Bowl.jpg"
+    },
+    {
+        "id": 13,
+        "name":"Supper Club Top Blade Steak",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Supper Club Top Blade Steak.jpg"
+    },
+    {
+        "id": 11,
+        "name":"Slow-Cooked Red Wine Beef",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Slow-Cooked Red Wine Beef Brisket.jpg"
+    },
+    {
+        "id": 12,
+        "name":"Super-Grain Pulled Pork Bowl",
+        "additionalItem":"with Masterful Mac & Cheese",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Super-Grain Pulled Pork Bowl.jpg"
+    }
+    
+    
+    
+]
+
