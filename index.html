@@ -21,12 +21,14 @@
 
 </head>
 <body>
+  <!-- templates -->
+
     <!-- date template  -->
-    <template>
+<template>
         <li data-day="" data-day-of-month="" data-month="" class="list-group-item"><strong></strong></li>
-    </template>
+</template>
     <!--grid item template-->
-    <template>
+<template>
       <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3">
         <div class="card menuItem" data-id="">
             <img class="card-img-top menu-img img-fluid" src="" alt="">
@@ -43,7 +45,25 @@
             </div>
         </div>
     </div>
-  </template>
+</template>
+  <!-- cart item teplate -->
+<template>
+  <div class="cart-item-section">
+    <div class="d-flex cart-item" data-id="">
+      <div class="cart-item-img">
+        <img src="" alt="" class="img-fluid">
+      </div>
+      <div class="name"></div>
+      <div class="btn-div d-flex flex-column ">
+       <i class="fas fa-plus"></i>
+       <i class="fas fa-minus"></i>
+      </div>
+    </div>
+  </div>
+</template>
+<!-- templates end  -->
+
+<!-- start -->
     <div class="step-app" id="demo">
     <div class="container">
         <ul class="step-steps">
@@ -112,9 +132,7 @@
            </div>
            <div class="row">
                <div class="col col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto">
-                <div class="list-group date-list ">
-                    
-                  </div>
+                <div class="list-group date-list "></div>
                   <div class="step-footer"> <button class="next btn btn-lg step-btn"data-step-action="next" >Next</button></div>
                   <div class="show-date text-center py-3"></div>
 
@@ -226,23 +244,17 @@
             <div class="container-fluid">
                 <div class="row">
                     <!-- meal grid -->
-            <div class="col col-md-8 col-lg-9 menu-grid">
+           <div class=" col-12 col-md-8 col-lg-9 menu-grid">  <!-- w-100 fw-lg-80 -->
                 <div class="row">
                     
                 </div>
-                
-                
-
- 
             </div>
             <!-- cart -->
-            <div class="col-12 col-md-4 col-lg-3">
-                this is cart
-                
-         </div>
-        </div>
-    </div>
-
+            <div class="col-12 col-md-4 col-lg-3 cart"> <!--w-100 fw-lg-20-->
+               <div class="delivery-date">My delivery for: <strong></strong><a class="clear ms-3">Clear all</a></div>
+           </div>
+               </div>
+            </div>
        </section>
 
    
