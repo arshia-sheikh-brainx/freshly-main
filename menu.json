@@ -13,7 +13,7 @@
     {
         "id": 2,
         "name":"Protein-Packed Chicken Parm",
-        "additionalItem":"with Masterful Mac & Cheese",
+        "additionalItem":"with Sautéed Carrots & French Green Beans",
         "gluten":"Free",
         "cals":"80",
         "carbs":"35g",
@@ -24,7 +24,7 @@
     {
         "id": 3,
         "name":"Cauliflower Shell Beef Bolognese",
-        "additionalItem":"with Masterful Mac & Cheese",
+        "additionalItem":"with Loaded Cauliflower",
         "gluten":"Free",
         "cals":"560",
         "carbs":"35g",
@@ -35,7 +35,7 @@
     {
         "id": 4,
         "name":"Chicken & Pumpkin Parmesan ",
-        "additionalItem":"with Masterful Mac & Cheese",
+        "additionalItem":"with Super Greens Pesto & Cauli Rice",
         "gluten":"Free",
         "cals":"560",
         "carbs":"35g",
@@ -133,7 +133,7 @@
     {
         "id": 13,
         "name":"Pork Chile Colorado",
-        "additionalItem":"with Masterful Mac & Cheese",
+        "additionalItem":"with Super Greens Pesto & Cauli Rice",
         "gluten":"Free",
         "cals":"560",
         "carbs":"35g",

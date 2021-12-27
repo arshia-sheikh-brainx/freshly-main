@@ -194,8 +194,6 @@
 .active-date {
   background-color: var(--skin-color);
   border-left: 8px solid #2a6dff !important;
-  /* outline: 0;
-    box-shadow: 0 0 0 0.2rem rgb(42 109 255 / 25%); */
 }
 #daySelection .next {
   align-items: center;
@@ -521,6 +519,9 @@ font-weight: 600;
     font-size:48px;
     line-height: 58px;
 }
+#deliveryDate{
+    cursor: pointer;
+}
 /* media queries */
 @media screen and (max-width: 1435px) {
   .protien {
@@ -558,12 +559,7 @@ font-weight: 600;
   .protien {
     display: none;
   }
-  /*cart section*/
-  /* .cart {
-    position: fixed;
-    bottom: 0;
-    max-height: 30vh;
-  } */
+
   .cart-footer {
     position: fixed;
     width: 94vw;

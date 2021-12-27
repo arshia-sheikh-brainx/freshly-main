@@ -221,8 +221,6 @@ $(document).ready(function () {
         let month = date.getMonth();
         let dayOfMonth = date.getDate();
         date.setDate(date.getDate() + 1);
-
-        
         //Create a new node, based on the template:
         let li = document.importNode(item, true);
         $(li).attr({
@@ -252,7 +250,23 @@ $(document).ready(function () {
 
         //add checkout date options
       let option= $("<option>").val(`${days[day]} , ${months[month]} ${dayOfMonth}`).text(` ${days[day]} , ${months[month]} ${dayOfMonth}`);
+      $(option).attr({
+        "data-day": days[day],
+        "data-day-of-month": dayOfMonth,
+        "data-month": months[month]
+    });
        $("#deliveryDate").append(option);
+
+       $("#deliveryDate").change(function(){
+        let day = $(this).find(':selected').attr("data-day");
+        let dayOfMonth = $(this).find(':selected').attr("data-day-of-month");
+        let month = $(this).find(':selected').attr("data-month");
+        localStorage.setItem("day", day);
+        localStorage.setItem("dayOfMonth", dayOfMonth);
+        localStorage.setItem("month", month);
+
+
+       })
 
       
 
@@ -375,5 +389,8 @@ $(document).ready(function () {
         $(".checkout-meal-section").append(checkoutMeal);
         }
     }
-
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
 });
