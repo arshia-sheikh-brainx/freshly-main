@@ -14,7 +14,7 @@ $(document).ready(function () {
     let cartSummarydiv = cartSummarytemplate.content.querySelector("div");
     let cartSummary = document.importNode(cartSummarydiv, true);
     //add text to cart footer
-    $(".message").text(`Please add ${localStorage.getItem("mealPlan")} items to continue`);
+    $(".message").text(`Please add total ${localStorage.getItem("mealPlan")} items to continue`);
     //promo 
     $(".promo-btn").click(function(){
         $(this).css("display","none");
@@ -195,6 +195,11 @@ $(document).ready(function () {
         mealPlan = selectMealPlan;
             //add text to cart footer
     $(".message").text(`Please add ${localStorage.getItem("mealPlan")} items to continue`);
+
+    //if plan change than update cart button and cart footer
+    cartButtonCkeck(); 
+    updateCartFooter();
+
     });
 
 
