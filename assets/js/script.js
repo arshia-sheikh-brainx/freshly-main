@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     let date = new Date();
@@ -9,18 +10,135 @@ $(document).ready(function () {
     let itemCount = 0;
     let totalCost = 0;
     let cart = [];  //initaize cart array
+
     //get cart summary div  
     let cartSummarytemplate = $("template")[3];
     let cartSummarydiv = cartSummarytemplate.content.querySelector("div");
     let cartSummary = document.importNode(cartSummarydiv, true);
+
     //add text to cart footer
     $(".message").text(`Please add total ${localStorage.getItem("mealPlan")} items to continue`);
+
     //promo 
     $(".promo-btn").click(function(){
         $(this).css("display","none");
-        $(".promo").removeClass("display")
-    })
+        $(".promo").removeClass("display");
+    });
+    
+        // step function
+        const steps = $('#demo').steps({});
+        let stepsApi = steps.data('plugin_Steps');
+    
+        /* meal plan section functions*/
 
+        $('[data-meal-plan]').click(function (e) {
+            let target = e.delegateTarget;
+            let selectMealPlan = $(target).attr("data-meal-plan");
+            localStorage.setItem("mealPlan", selectMealPlan);
+            mealPlan = selectMealPlan;
+            //add text to cart footer
+            $(".message").text(`Please add ${localStorage.getItem("mealPlan")} items to continue`);
+            //if plan change than update cart button and cart footer
+            cartButtonCkeck(); 
+            updateCartFooter();
+    
+        });
+
+
+        /* day section functions*/
+
+            //loop to show dates
+         for (let i = 0; i < 10; i++) {
+        // using template list propagation
+        let temp = $("template")[0];
+        //get the div element from the template:
+        let item = temp.content.querySelector("li");;
+        if (i == 0) {
+            createDateList(true, item);
+        } else {
+            createDateList(false, item);
+        }
+          }
+
+         //show date on date page + menu page 
+         showDate();
+
+    //  function create date list
+        function createDateList(isActive, item) {
+        let day = date.getDay();
+        let month = date.getMonth();
+        let dayOfMonth = date.getDate();
+        date.setDate(date.getDate() + 1);
+        //Create a new node, based on the template:
+        let li = document.importNode(item, true);
+        $(li).attr({
+            "data-day": days[day],
+            "data-day-of-month": dayOfMonth,
+            "data-month": months[month]
+        });
+        let text = ", " + months[month] + " " + dayOfMonth;
+        $(li).children("strong").text(days[day]);
+        let popular = "<span class='badge green-text'><i class='far fa-star'></i> Most Poular</span>";
+        $(li).append(text);
+     
+
+        if (isActive) {
+            $(li).append(popular);
+            $(li).addClass('active-date');
+            localStorage.setItem("day", days[day]);
+            localStorage.setItem("dayOfMonth", dayOfMonth);
+            localStorage.setItem("month", months[month]);
+        }
+        //add Event listener to list item
+        $(li).click((e) => {
+            addListStyle(e)
+        });
+        //append list item to the date-list div
+        $(".date-list").append(li);
+
+          //add date list on checkout page
+        addCheeckoutOptions(day,month,dayOfMonth);
+
+    }
+    
+    //add style to selected date 
+    function addListStyle(e) {
+        $('.date-list .list-group-item').each(function () {
+            $(this).removeClass('active-date');
+
+            if (this == e.currentTarget) {
+                $(this).addClass('active-date');
+                let day = $(this).attr("data-day");
+                let dayOfMonth = $(this).attr("data-day-of-month");
+                let month = $(this).attr("data-month");
+                localStorage.setItem("day", day);
+                localStorage.setItem("dayOfMonth", dayOfMonth);
+                localStorage.setItem("month", month);
+                //update text when date change
+                showDate();
+
+                //update checkout date option
+                $('#deliveryDate option').each(function() {
+                    if($(this).val() == `${day} , ${month} ${dayOfMonth}`) {
+                        $(this).prop("selected", true);
+                    }
+                });
+            
+            }
+        });
+    }
+
+
+    //show date on page 
+
+    function showDate() {
+        let dateText = "First Delivery Date: " + localStorage.getItem("day") + ", " + localStorage.getItem("month") + " " + localStorage.getItem("dayOfMonth");
+        $(".show-date").text(dateText);
+        $(".delivery-date strong").text(localStorage.getItem("day") + ", " + localStorage.getItem("month") + " " + localStorage.getItem("dayOfMonth"));
+
+    }
+
+     /* menu section functions*/
     //get menu data
     $.get("menu.json", function (data, status) {
         if (status == "success") {
@@ -36,15 +154,16 @@ $(document).ready(function () {
                 let protein = menuItems[i].protein;
                 let imageUrl = menuItems[i].url;
                 let price = menuItems[i].price;
+                let tag = menuItems[i].tag;
 
-                displayMenu(id, name, additionalItem, gluten, cals, carbs, protein, imageUrl, price);
+                displayMenu(id, name, additionalItem, gluten, cals, carbs, protein, imageUrl, price,tag);
             }
 
         }
     });
 
     //display menu items
-    function displayMenu(id, name, additionalItem, gluten, cals, carbs, protein, imageUrl, price) {
+    function displayMenu(id, name, additionalItem, gluten, cals, carbs, protein, imageUrl, price,tag) {
 
         let temp = $("template")[1];
         let div = temp.content.querySelector("div");
@@ -60,10 +179,13 @@ $(document).ready(function () {
         $(menu).find(".calValue").text(cals);
         $(menu).find(".crbsValue").text(carbs);
         $(menu).find(".protienValue").text(protein);
+        if(tag == "popular"){
+            $(menu).children(".menuItem").addClass("popular");
+        }
 
         //onclick add to the cart this item
         $(menu).find(".addTocartBtn").click((e) => {
-            addToCart(id, name, additionalItem, imageUrl, price);
+            addToCart(id, name, additionalItem, imageUrl, price,tag);
         });
 
         //append to the menu grid
@@ -72,7 +194,7 @@ $(document).ready(function () {
     }
 
     //add to cart function
-    function addToCart(id, name, additionalItem, image, price) {
+    function addToCart(id, name, additionalItem, image, price,tag) {
 
         //icrement item count
         itemCount++;
@@ -85,6 +207,7 @@ $(document).ready(function () {
             additionalItem: additionalItem,
             imageUrl: image,
             price: price,
+            tag:tag,
             count: 1
         };
         //check if item exit 
@@ -106,6 +229,9 @@ $(document).ready(function () {
                 "alt": name
             });
         $(cartItem).find(".name").text(name);
+        if(tag=="popular"){
+            $(cartItem).find(".cart-item").addClass("popular");
+        }
 
 
         //append cart item
@@ -113,7 +239,7 @@ $(document).ready(function () {
 
         //plus btn
         $(cartItem).find(".fa-plus").click(() => {
-            addToCart(id, name, additionalItem, image, price)
+            addToCart(id, name, additionalItem, image, price,tag)
         });
         //remove item
         $(cartItem).find(".fa-minus").click(function () {
@@ -123,7 +249,7 @@ $(document).ready(function () {
 
 
         //add cart summary
-        addCartSummary(cartSummary);
+         addCartSummary(cartSummary);
         //next buttom check
          cartButtonCkeck();
 
@@ -183,143 +309,7 @@ $(document).ready(function () {
 
     }
 
-    // step function
-    const steps = $('#demo').steps({});
-    let stepsApi = steps.data('plugin_Steps');
-
-    // meal plan section function
-    $('[data-meal-plan]').click(function (e) {
-        let target = e.delegateTarget;
-        let selectMealPlan = $(target).attr("data-meal-plan");
-        localStorage.setItem("mealPlan", selectMealPlan);
-        mealPlan = selectMealPlan;
-            //add text to cart footer
-    $(".message").text(`Please add ${localStorage.getItem("mealPlan")} items to continue`);
-
-    //if plan change than update cart button and cart footer
-    cartButtonCkeck(); 
-    updateCartFooter();
-
-    });
-
-
-
-
-    //loop to show dates
-    for (let i = 0; i < 10; i++) {
-        // using template list propagation
-        let temp = $("template")[0];
-        //get the div element from the template:
-        let item = temp.content.querySelector("li");;
-        if (i == 0) {
-            createDateList(true, item);
-        } else {
-            createDateList(false, item);
-        }
-    }
-
-    //show date on date page + menu page 
-    showDate();
-
-    //  function create date list
-    function createDateList(isActive, item) {
-        let day = date.getDay();
-        let month = date.getMonth();
-        let dayOfMonth = date.getDate();
-        date.setDate(date.getDate() + 1);
-        //Create a new node, based on the template:
-        let li = document.importNode(item, true);
-        $(li).attr({
-            "data-day": days[day],
-            "data-day-of-month": dayOfMonth,
-            "data-month": months[month]
-        });
-        let text = ", " + months[month] + " " + dayOfMonth;
-        $(li).children("strong").text(days[day]);
-        let popular = "<span class='badge green-text'><i class='far fa-star'></i> Most Poular</span>";
-        $(li).append(text);
-     
-
-        if (isActive) {
-            $(li).append(popular);
-            $(li).addClass('active-date');
-            localStorage.setItem("day", days[day]);
-            localStorage.setItem("dayOfMonth", dayOfMonth);
-            localStorage.setItem("month", months[month]);
-        }
-        //add Event listener to list item
-        $(li).click((e) => {
-            addListStyle(e)
-        });
-        //append list item to the date-list div
-        $(".date-list").append(li);
-
-          //add date list on checkout page
-        addCheeckoutOptions(day,month,dayOfMonth);
-
-    }
-    //    function to generate checkout date options
-   function  addCheeckoutOptions(day,month,dayOfMonth){      
-      let option= $("<option>").val(`${days[day]} , ${months[month]} ${dayOfMonth}`).text(` ${days[day]} , ${months[month]} ${dayOfMonth}`);
-      $(option).attr({
-        "data-day": days[day],
-        "data-day-of-month": dayOfMonth,
-        "data-month": months[month]
-    });
-       $("#deliveryDate").append(option);
-
-       $("#deliveryDate").change(function(){
-        let day = $(this).find(':selected').attr("data-day");
-        let dayOfMonth = $(this).find(':selected').attr("data-day-of-month");
-        let month = $(this).find(':selected').attr("data-month");
-        localStorage.setItem("day", day);
-        localStorage.setItem("dayOfMonth", dayOfMonth);
-        localStorage.setItem("month", month);
-       })
-   }
-
-
-    //add style to selected date
-    function addListStyle(e) {
-        $('.date-list .list-group-item').each(function () {
-            $(this).removeClass('active-date');
-
-            if (this == e.currentTarget) {
-                $(this).addClass('active-date');
-                let day = $(this).attr("data-day");
-                let dayOfMonth = $(this).attr("data-day-of-month");
-                let month = $(this).attr("data-month");
-                localStorage.setItem("day", day);
-                localStorage.setItem("dayOfMonth", dayOfMonth);
-                localStorage.setItem("month", month);
-                //update text when date change
-                showDate();
-
-                //update checkout date option
-                $('#deliveryDate option').each(function() {
-                    if($(this).val() == `${day} , ${month} ${dayOfMonth}`) {
-                        $(this).prop("selected", true);
-                    }
-                });
-            
-            }
-        });
-    }
-
-
-
-    
-    //show date on page 
-
-    function showDate() {
-        let dateText = "First Delivery Date: " + localStorage.getItem("day") + ", " + localStorage.getItem("month") + " " + localStorage.getItem("dayOfMonth");
-        $(".show-date").text(dateText);
-        $(".delivery-date strong").text(localStorage.getItem("day") + ", " + localStorage.getItem("month") + " " + localStorage.getItem("dayOfMonth"));
-
-    }
-
-
-    //function check if the item is already in the cart
+        //function check if the item is already in the cart
     //if it is then return the index of the item else return -1
     function isExist(id) {
         for (let i = 0; i < cart.length; i++) {
@@ -376,6 +366,27 @@ $(document).ready(function () {
         }
 
     }
+     /* checkout section functions*/
+
+    //    function to generate checkout date options
+   function  addCheeckoutOptions(day,month,dayOfMonth){      
+      let option= $("<option>").val(`${days[day]} , ${months[month]} ${dayOfMonth}`).text(` ${days[day]} , ${months[month]} ${dayOfMonth}`);
+      $(option).attr({
+        "data-day": days[day],
+        "data-day-of-month": dayOfMonth,
+        "data-month": months[month]
+    });
+       $("#deliveryDate").append(option);
+
+       $("#deliveryDate").change(function(){
+        let day = $(this).find(':selected').attr("data-day");
+        let dayOfMonth = $(this).find(':selected').attr("data-day-of-month");
+        let month = $(this).find(':selected').attr("data-month");
+        localStorage.setItem("day", day);
+        localStorage.setItem("dayOfMonth", dayOfMonth);
+        localStorage.setItem("month", month);
+       })
+   }
 
     //checkout meals 
     function showCheckoutMeals(){
@@ -392,22 +403,29 @@ $(document).ready(function () {
             });
         $(checkoutMeal).find(".name").text(cart[j].name);
         $(checkoutMeal).find(".addtionInfo").text(cart[j].additionalItem);
+        if(cart[j].tag == "popular"){
+            $(checkoutMeal).addClass("popular");
+        }
         $(".checkout-meal-section").append(checkoutMeal);
         }
     }
 
     //show tooltips
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl);
-});
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+     return new bootstrap.Tooltip(tooltipTriggerEl);
+     });
+
 //show cart slider for mobiles
-if($(window).width() < 576) {
+
     $(".slideUpCartBtn").click(function(){
-    $(".cart").toggleClass("change-height");
-    $(".cart-top").slideToggle();
-
-    })
-}
-
+        if($(window).width() < 576) {
+    $(".cart-top").toggleClass("toogle-show");
+     }
+});
+$(".cart-icon-div").click(function(){
+    if($(window).width() < 576) {
+    $(".cart-top").toggleClass("toogle-show");
+    }
+});
 });

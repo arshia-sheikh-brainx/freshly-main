@@ -8,7 +8,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Pork Chile Colorado.jpg"
+        "url":"assets/images/Pork Chile Colorado.jpg",
+        "tag":""
     },
     {
         "id": 2,
@@ -19,18 +20,21 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Protein-Packed Chicken Parm.jpg"
+        "url":"assets/images/Protein-Packed Chicken Parm.jpg",
+        "tag":""
     },
     {
         "id": 3,
-        "name":"Cauliflower Shell Beef Bolognese",
-        "additionalItem":"with Loaded Cauliflower",
+        "name":"Super-Grain Pulled Pork Bowl",
+        "additionalItem":"with Masterful Mac & Cheese",
         "gluten":"Free",
         "cals":"560",
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Cauliflower Shell Beef Bolognese.jpg"
+        "url":"assets/images/Super-Grain Pulled Pork Bowl.jpg",
+        "tag":"popular"
+     
     },
     {
         "id": 4,
@@ -41,7 +45,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Chicken & Pumpkin Parmesan Risotto.jpg"
+        "url":"assets/images/Chicken & Pumpkin Parmesan Risotto.jpg",
+        "tag":""
     },
     {
         "id": 5,
@@ -52,7 +57,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Homestyle Chicken.jpg"
+        "url":"assets/images/Homestyle Chicken.jpg",
+        "tag":""
     },
     {
         "id": 6,
@@ -63,7 +69,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"24",
-        "url":"assets/images/Keto-Friendly Chicken Bowl.jpg"
+        "url":"assets/images/Keto-Friendly Chicken Bowl.jpg",
+        "tag":""
     },
     {
         "id": 7,
@@ -74,7 +81,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"104",
-        "url":"assets/images/Miso-Glazed Beef Bowl.jpg"
+        "url":"assets/images/Miso-Glazed Beef Bowl.jpg",
+        "tag":""
     }, {
         "id": 8,
         "name":"Chicken Cordon Bleu",
@@ -84,7 +92,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Chicken Cordon Bleu.jpg"
+        "url":"assets/images/Chicken Cordon Bleu.jpg",
+        "tag":""
     },
     {
         "id": 9,
@@ -95,7 +104,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Chipotle Chicken Bowl.jpg"
+        "url":"assets/images/Chipotle Chicken Bowl.jpg",
+        "tag":""
     },
     {
         "id": 10,
@@ -106,7 +116,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Supper Club Top Blade Steak.jpg"
+        "url":"assets/images/Supper Club Top Blade Steak.jpg",
+        "tag":""
     },
     {
         "id": 11,
@@ -117,21 +128,12 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Slow-Cooked Red Wine Beef Brisket.jpg"
+        "url":"assets/images/Slow-Cooked Red Wine Beef Brisket.jpg",
+        "tag":"popular"
     },
+   
     {
         "id": 12,
-        "name":"Super-Grain Pulled Pork Bowl",
-        "additionalItem":"with Masterful Mac & Cheese",
-        "gluten":"Free",
-        "cals":"560",
-        "carbs":"35g",
-        "protein":"46g",
-        "price":"14",
-        "url":"assets/images/Super-Grain Pulled Pork Bowl.jpg"
-    },
-    {
-        "id": 13,
         "name":"Pork Chile Colorado",
         "additionalItem":"with Super Greens Pesto & Cauli Rice",
         "gluten":"Free",
@@ -142,6 +144,18 @@
         "url":"assets/images/Pork Chile Colorado.jpg"
     },
     {
+        "id": 13,
+        "name":"Cauliflower Shell Beef Bolognese",
+        "additionalItem":"with Loaded Cauliflower",
+        "gluten":"Free",
+        "cals":"560",
+        "carbs":"35g",
+        "protein":"46g",
+        "price":"14",
+        "url":"assets/images/Cauliflower Shell Beef Bolognese.jpg",
+        "tag":""
+    },
+    {
         "id": 14,
         "name":"Protein-Packed Chicken Parm",
         "additionalItem":"with Masterful Mac & Cheese",
@@ -150,7 +164,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Protein-Packed Chicken Parm.jpg"
+        "url":"assets/images/Protein-Packed Chicken Parm.jpg",
+        "tag":""
     },
     {
         "id": 15,
@@ -161,7 +176,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Cauliflower Shell Beef Bolognese.jpg"
+        "url":"assets/images/Cauliflower Shell Beef Bolognese.jpg",
+        "tag":""
     },
     {
         "id": 16,
@@ -172,7 +188,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Chicken & Pumpkin Parmesan Risotto.jpg"
+        "url":"assets/images/Chicken & Pumpkin Parmesan Risotto.jpg",
+        "tag":""
     },
     {
         "id": 17,
@@ -183,7 +200,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Homestyle Chicken.jpg"
+        "url":"assets/images/Homestyle Chicken.jpg",
+        "tag":""
     },
     {
         "id": 18,
@@ -194,7 +212,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"24",
-        "url":"assets/images/Keto-Friendly Chicken Bowl.jpg"
+        "url":"assets/images/Keto-Friendly Chicken Bowl.jpg",
+        "tag":""
     },
     {
         "id": 19,
@@ -205,7 +224,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"104",
-        "url":"assets/images/Miso-Glazed Beef Bowl.jpg"
+        "url":"assets/images/Miso-Glazed Beef Bowl.jpg",
+        "tag":""
     }, {
         "id": 20,
         "name":"Chicken Cordon Bleu",
@@ -215,7 +235,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Chicken Cordon Bleu.jpg"
+        "url":"assets/images/Chicken Cordon Bleu.jpg",
+        "tag":""
     },
     {
         "id": 21,
@@ -226,7 +247,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Chipotle Chicken Bowl.jpg"
+        "url":"assets/images/Chipotle Chicken Bowl.jpg",
+        "tag":""
     },
     {
         "id": 22,
@@ -237,7 +259,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Supper Club Top Blade Steak.jpg"
+        "url":"assets/images/Supper Club Top Blade Steak.jpg",
+        "tag":""
     },
     {
         "id": 23,
@@ -248,7 +271,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Slow-Cooked Red Wine Beef Brisket.jpg"
+        "url":"assets/images/Slow-Cooked Red Wine Beef Brisket.jpg",
+        "tag":""
     },
     {
         "id": 24,
@@ -259,7 +283,8 @@
         "carbs":"35g",
         "protein":"46g",
         "price":"14",
-        "url":"assets/images/Super-Grain Pulled Pork Bowl.jpg"
+        "url":"assets/images/Super-Grain Pulled Pork Bowl.jpg",
+        "tag":""
     }
     
     
