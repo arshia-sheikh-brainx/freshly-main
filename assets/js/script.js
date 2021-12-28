@@ -394,6 +394,15 @@ $(document).ready(function () {
     //show tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+//show cart slider for mobiles
+if($(window).width() < 576) {
+    $(".slideUpCartBtn").click(function(){
+    $(".cart").toggleClass("change-height");
+    $(".cart-top").slideToggle();
+
+    })
+}
+
 });

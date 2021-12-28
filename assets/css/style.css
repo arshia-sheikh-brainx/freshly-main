@@ -10,10 +10,6 @@
   --text-light: #303030;
   --card-small-text: #707070;
 }
-@font-face {
-  font-family: firstlyFont;
-  src: url("assets/fonts/InriaSans-Regular.ttf");
-}
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -559,6 +555,9 @@ font-weight: 600;
 .display{
   display: none !important;
 }
+.slideUpCartBtn{
+  display: none;
+}
 /* media queries */
 @media screen and (max-width: 1435px) {
   .protien {
@@ -596,13 +595,21 @@ font-weight: 600;
   .protien {
     display: none;
   }
-
-  .cart-footer {
-    position: fixed;
-    width: 94vw;
-    bottom: 0;
+  .slideUpCartBtn{
+    display: block;
   }
-
+  .cart-top{
+    display: none;
+  }
+  .cart{
+    position: fixed;
+    bottom: 0;
+    height: 230px;
+    padding: 0 10px;
+}
+.change-height{
+  height:80vh;
+}
   .cart .delivery-date {
     display: none;
   }
@@ -610,6 +617,3 @@ font-weight: 600;
     padding-left: 10px;
 }
 }
-
-
-
