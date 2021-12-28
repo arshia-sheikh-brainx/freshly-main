@@ -9,18 +9,17 @@ $(document).ready(function () {
     let itemCount = 0;
     let totalCost = 0;
     let cart = [];  //initaize cart array
-
-    // //check if the cart is in local storage or not
-    // if(localStorage.getItem("cart")===null) {
-    //     localStorage.setItem("cart", JSON.stringify(cart));
-    // }else{
-    //     cart= JSON.parse(localStorage.getItem("cart"));
-
-    // }
     //get cart summary div  
     let cartSummarytemplate = $("template")[3];
     let cartSummarydiv = cartSummarytemplate.content.querySelector("div");
     let cartSummary = document.importNode(cartSummarydiv, true);
+    //add text to cart footer
+    $(".message").text(`Please add ${localStorage.getItem("mealPlan")} items to continue`);
+    //promo 
+    $(".promo-btn").click(function(){
+        $(this).css("display","none");
+        $(".promo").removeClass("display")
+    })
 
     //get menu data
     $.get("menu.json", function (data, status) {
@@ -126,7 +125,7 @@ $(document).ready(function () {
         //add cart summary
         addCartSummary(cartSummary);
         //next buttom check
-        cartButtonCkeck();
+         cartButtonCkeck();
 
         //update cart footer
         updateCartFooter();
@@ -194,6 +193,8 @@ $(document).ready(function () {
         let selectMealPlan = $(target).attr("data-meal-plan");
         localStorage.setItem("mealPlan", selectMealPlan);
         mealPlan = selectMealPlan;
+            //add text to cart footer
+    $(".message").text(`Please add ${localStorage.getItem("mealPlan")} items to continue`);
     });
 
 
@@ -248,7 +249,12 @@ $(document).ready(function () {
         //append list item to the date-list div
         $(".date-list").append(li);
 
-        //add checkout date options
+          //add date list on checkout page
+        addCheeckoutOptions(day,month,dayOfMonth);
+
+    }
+    //    function to generate checkout date options
+   function  addCheeckoutOptions(day,month,dayOfMonth){      
       let option= $("<option>").val(`${days[day]} , ${months[month]} ${dayOfMonth}`).text(` ${days[day]} , ${months[month]} ${dayOfMonth}`);
       $(option).attr({
         "data-day": days[day],
@@ -264,15 +270,10 @@ $(document).ready(function () {
         localStorage.setItem("day", day);
         localStorage.setItem("dayOfMonth", dayOfMonth);
         localStorage.setItem("month", month);
-
-
        })
-
-      
-
+   }
 
 
-    }
     //add style to selected date
     function addListStyle(e) {
         $('.date-list .list-group-item').each(function () {
@@ -389,6 +390,8 @@ $(document).ready(function () {
         $(".checkout-meal-section").append(checkoutMeal);
         }
     }
+
+    //show tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)

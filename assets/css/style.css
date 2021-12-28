@@ -90,6 +90,19 @@
   margin-bottom: 20px;
   cursor: pointer;
 }
+.freshly-img-container{
+  position: relative;
+}
+.freshly-img-container .badge{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 8px;
+  background-color: #85e5c6;
+  color: #323232;
+  font-size: 14px;
+  line-height: 1em;
+}
 .meal-name {
   font-size: 28px;
   line-height: 36px;
@@ -324,7 +337,6 @@
 .cart {
   max-height: calc(100vh - 44px);
   background-color: var(--white-color);
-  overflow-y: auto;
 }
 .cart-top {
   overflow-y: auto;
@@ -514,6 +526,13 @@ font-weight: 600;
   }
   #checkout-section .checkout-order-summary .list-group-item{
       padding: 12px;
+      font-size: 14px;
+  }
+  #checkout-section .checkout-order-summary .list-group-item:first-child,
+  #checkout-section .checkout-order-summary .list-group-item:nth-child(2),
+  #checkout-section .checkout-order-summary .list-group-item:last-child
+  {
+    font-size: 16px;
   }
   #checkout-section .faq h2{
     font-size:48px;
@@ -521,6 +540,24 @@ font-weight: 600;
 }
 #deliveryDate{
     cursor: pointer;
+}
+/* tooltip  */
+.tooltip-inner {
+  text-align: left;
+  color: #303030;
+  background: #ffffff;
+  opacity: 1.5;
+  border: 1px solid grey;
+}
+.tooltip-arrow{
+  display:none !important;
+}
+.tooltip.show {
+  opacity: 1;
+}
+
+.display{
+  display: none !important;
 }
 /* media queries */
 @media screen and (max-width: 1435px) {
@@ -573,3 +610,6 @@ font-weight: 600;
     padding-left: 10px;
 }
 }
+
+
+

@@ -171,7 +171,7 @@
                           src="assets/images/plan1.jpg"
                           alt="plan 4"
                           class="img-fluid"
-                        />
+                        /><span class="badge rounded-pill">Save upto 10$</span>
                       </div>
                       <div class="meal-name green-text">4 Meals</div>
                     </div>
@@ -528,7 +528,7 @@
                       </div>
                       <div class="cart-icon-div rounded-pill">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="itemcount green-text"> </span>
+                        <span class="itemcount green-text"><span class="text-danger">0</span> </span>
                       </div>
                     </div>
                     <div class="step-footer">
@@ -553,7 +553,7 @@
         <div class="step-tab-panel" data-step="checkout">
           <section id="checkout-section">
             <div class="container">
-              <div class="row">
+              <div class="row overflow-hidden">
                 <div class="mx-auto my-3 px-0 col-lg-10">
                   <div class="row py-3">
                     <div class=" col-12 order-1 col-md-7 order-md-0 ">
@@ -591,7 +591,18 @@
                         <div class="col-md-4">
                           <label for="inputState" class="form-label">State</label>
                           <select id="inputState" class="form-select">
-                           <option></option><option>AL</option><option>AK</option><option>AZ</option><option selected="">AR</option><option>CA</option><option>CO</option><option>CT</option><option>DE</option><option>DC</option><option>FL</option><option>GA</option><option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option><option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option><option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option><option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option><option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option><option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option><option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option><option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option>
+                           <option></option>
+                           
+                           <option selected="">AR</option>
+                           <option>DC</option> <option>FL</option><option>GA</option><option>HI</option>
+                           <option>ID</option><option>IL</option><option>IN</option><option>IA</option><option>KS</option>
+                           <option>KY</option><option>LA</option><option>ME</option><option>MD</option><option>MA</option>
+                           <option>MI</option><option>MN</option><option>MS</option><option>MO</option><option>MT</option>
+                           <option>NE</option><option>NV</option><option>NH</option><option>NJ</option><option>NM</option>
+                           <option>NY</option><option>NC</option><option>ND</option><option>OH</option><option>OK</option>
+                           <option>OR</option><option>PA</option><option>RI</option><option>SC</option><option>SD</option>
+                           <option>TN</option><option>TX</option><option>UT</option><option>VT</option><option>VA</option>
+                           <option>WA</option><option>WV</option><option>WI</option><option>WY</option>
                           </select>
                         </div>
                         <div class="col-md-3">
@@ -606,10 +617,17 @@
                         <div class="col-12">
                           <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
+                            <label class="form-check-label d-inline" for="gridCheck">
                               Receive SMS text message updates on my orders
                             </label>
-                            <div  role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="SMS text messages will be sent through an automatic telephone dialing system. This service is optional, and is not a condition of purchase. You can opt-out of receiving SMS messages at any time by texting STOP. Message and data rates may apply." class="d-inline-block pl-1 pr-0 py-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill-rule="nonzero" fill="none"><circle cx="10" cy="10" r="9" stroke="#717171"></circle><text fill="#717171" font-family="Roboto-Black, Roboto" font-size="11" font-weight="700"><tspan x="8.751" y="13.5">i</tspan></text></g></svg></div>
+                            <div  role="button" data-bs-toggle="tooltip" data-bs-placement="top" 
+                            title="SMS text messages will be sent through an automatic telephone dialing system.
+                             This service is optional, and is not a condition of purchase. You can opt-out of receiving
+                              SMS messages at any time by texting STOP. Message and data rates may apply." class="d-inline-block pl-1 pr-0 py-0">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g fill-rule="nonzero" fill="none">
+                                <circle cx="10" cy="10" r="9" stroke="#717171"></circle><text fill="#717171" font-family="Roboto-Black, Roboto" font-size="11" 
+                                font-weight="700"><tspan x="8.751" y="13.5">i</tspan></text></g></svg>
+                              </div>
                           </div>
                         </div>
                         <div class="col-12">
@@ -633,7 +651,14 @@
                       <h3 class="mb-0  d-md-block pt-2 mb-4">Order Summary</h3>
                       <div class="checkout-order-summary my-3">
                         <ul class="list-group ">
-                          <li class="list-group-item text-primary fw-600 text-decoration-underline " role="button"><a href="#">+ Add Promo Code</a></li>
+                          <li class="list-group-item" role="button">
+                            <a href="#" class="text-primary fw-600 text-decoration-underline promo-btn ">+ Add Promo Code</a>
+                            <div class="d-flex promo display justify-content-between my-1  ">
+                              <input type="text" name="promocode" id="promoCode" placeholder="Promo Code" class="flex-fill me-1">
+                              <button type="button" class="btn btn-outline-primary flex-fill">Apply</button>
+                            </div>
+                          
+                          </li>
                           <li class="list-group-item">
                             <label class="float-left">Delivery Date</label>
                             <div class="input-group">
@@ -643,20 +668,20 @@
                                 </li>
                           <li class="list-group-item meals-total">
                             <div class="d-flex justify-content-between">
-                              <div class="fw-bold total-meals" ><span></span>  Meals</div>
+                              <div class="total-meals" ><span></span>  Meals</div>
                               <div class=" fw-bold total price">$47.16</div>
                             </div>
                           </li>
                           <li class="list-group-item">
                             <div class="d-flex justify-content-between">
-                              <div class="fw-bold" >Shipping</div>
+                              <div >Shipping</div>
                               <div class="fw-bold">$6.99</div>
                             </div>
                           </li>
 
                           <li class="list-group-item">
                             <div class="d-flex justify-content-between">
-                              <div class="fw-bold">Tax</div>
+                              <div>Tax</div>
                               <div class="fw-bold ">$6.99</div>
                             </div>
                           </li>
